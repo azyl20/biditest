@@ -223,6 +223,8 @@ paths:
                     quantity:
                       type: integer
                       minimum: 1
+                    name:
+                      type: string
   /cart/items:
     post:
       summary: Add item to cart
