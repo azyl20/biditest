@@ -201,7 +201,7 @@ paths:
                     format: date-time
   /cart:
     get:
-      summary: Get the cart
+      summary: Get the cart mate
       security:
         - BearerAuth: []
       responses:
