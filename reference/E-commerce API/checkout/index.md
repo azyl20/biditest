@@ -1,4 +1,0 @@
----
-title: /checkout
-hidden: false
----
