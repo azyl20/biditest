@@ -46,7 +46,7 @@ paths:
           description: Invalid input
   /auth/login:
     post:
-      summary: Login and get access brother
+      summary: Login and get access token
       requestBody:
         required: true
         content:
@@ -60,8 +60,6 @@ paths:
                 email:
                   type: string
                 password:
-                  type: string
-                name:
                   type: string
       responses:
         '200':
@@ -409,7 +407,7 @@ paths:
                     format: date-time
   /addresses:
     get:
-      summary: Get your saved addy mate
+      summary: Get your saved addresses
       security:
         - BearerAuth: []
       responses:
@@ -440,7 +438,6 @@ paths:
                       type: string
                     country:
                       type: string
-      description: abcd
     post:
       summary: Add a new address
       security:
@@ -473,8 +470,3 @@ paths:
       responses:
         '201':
           description: Address added
-      parameters:
-        - in: header
-          name: param
-          schema:
-            type: string
