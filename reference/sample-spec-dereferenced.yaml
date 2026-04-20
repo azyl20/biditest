@@ -61,6 +61,8 @@ paths:
                   type: string
                 password:
                   type: string
+                name:
+                  type: string
       responses:
         '200':
           description: Authenticated successfully
