@@ -438,6 +438,8 @@ paths:
                       type: string
                     country:
                       type: string
+                    name:
+                      type: string
       parameters:
         - in: header
           name: param
