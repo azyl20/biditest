@@ -445,6 +445,7 @@ paths:
           name: param
           schema:
             type: string
+      description: asdasdasd
     post:
       summary: Add a new address
       security:
