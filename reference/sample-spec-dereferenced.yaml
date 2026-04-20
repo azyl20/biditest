@@ -438,6 +438,11 @@ paths:
                       type: string
                     country:
                       type: string
+      parameters:
+        - in: header
+          name: param
+          schema:
+            type: string
     post:
       summary: Add a new address
       security:
