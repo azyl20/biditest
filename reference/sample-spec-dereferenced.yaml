@@ -407,7 +407,7 @@ paths:
                     format: date-time
   /addresses:
     get:
-      summary: Get your saved addresses
+      summary: Get your saved addresses mate
       security:
         - BearerAuth: []
       responses:
@@ -438,6 +438,7 @@ paths:
                       type: string
                     country:
                       type: string
+      description: abcd
     post:
       summary: Add a new address
       security:
