@@ -409,7 +409,7 @@ paths:
                     format: date-time
   /addresses:
     get:
-      summary: Get your saved addresses mate
+      summary: Get your saved addy mate
       security:
         - BearerAuth: []
       responses:
