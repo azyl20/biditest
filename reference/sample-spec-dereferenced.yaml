@@ -407,7 +407,7 @@ paths:
                     format: date-time
   /addresses:
     get:
-      summary: Get your saved addressasdasdasdasdes
+      summary: Get your saved addresses
       security:
         - BearerAuth: []
       responses:
