@@ -407,7 +407,7 @@ paths:
                     format: date-time
   /addresses:
     get:
-      summary: Get your saved addressesasdfasdf
+      summary: Get your saved addresses
       security:
         - BearerAuth: []
       responses:
@@ -438,6 +438,11 @@ paths:
                       type: string
                     country:
                       type: string
+      parameters:
+        - in: header
+          name: param
+          schema:
+            type: string
     post:
       summary: Add a new address
       security:
