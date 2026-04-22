@@ -3,7 +3,6 @@
 - authregister
 - cart
 - cartitems
-- get_cart
 - checkout
 - orders
 - ordersorderid
