@@ -1,7 +1,7 @@
 ---
 api:
   file: sample-spec-dereferenced.yaml
-  operationId: post_cart-items
+  operationId: get_cart-items
 hidden: false
 ---
 sadfasdfasdfasdasfasdfasdf
