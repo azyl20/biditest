@@ -215,7 +215,7 @@ paths:
                       type: integer
                       minimum: 1
   /cart/items:
-    post:
+    put:
       summary: Add item to cart
       security:
         - BearerAuth: []
@@ -238,6 +238,7 @@ paths:
       responses:
         '200':
           description: Item added to cart
+      operationId: put_cart-items
   /checkout:
     post:
       summary: Checkout and place order
