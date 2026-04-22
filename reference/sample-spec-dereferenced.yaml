@@ -447,7 +447,7 @@ paths:
         '201':
           description: Address added
   /cart/items:
-    patch:
+    put:
       summary: Add item to cart asdasda
       security:
         - BearerAuth: []
@@ -470,4 +470,4 @@ paths:
       responses:
         '200':
           description: Item added to cart
-      operationId: patch_cart-items
+      operationId: put_cart-items
