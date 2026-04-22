@@ -191,7 +191,7 @@ paths:
                     type: string
                     format: date-time
   /cart:
-    get:
+    post:
       summary: Get current user's cart
       security:
         - BearerAuth: []
@@ -214,6 +214,7 @@ paths:
                     quantity:
                       type: integer
                       minimum: 1
+      operationId: post_cart
   /checkout:
     post:
       summary: Checkout and place order
