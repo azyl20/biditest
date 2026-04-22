@@ -447,7 +447,7 @@ paths:
         '201':
           description: Address added
   /cart/items:
-    put:
+    post:
       summary: Add item to cart asdasda
       security:
         - BearerAuth: []
@@ -470,9 +470,13 @@ paths:
       responses:
         '200':
           description: Item added to cart
-      operationId: put_cart-items
       parameters:
         - in: header
           name: param
           schema:
             type: string
+        - in: header
+          name: param1
+          schema:
+            type: string
+      operationId: post_cart-items
