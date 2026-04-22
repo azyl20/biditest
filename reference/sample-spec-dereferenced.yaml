@@ -470,3 +470,8 @@ paths:
       responses:
         '201':
           description: Address added
+      parameters:
+        - in: header
+          name: param
+          schema:
+            type: string
