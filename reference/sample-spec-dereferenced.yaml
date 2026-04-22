@@ -471,3 +471,8 @@ paths:
         '200':
           description: Item added to cart
       operationId: put_cart-items
+      parameters:
+        - in: header
+          name: param
+          schema:
+            type: string
