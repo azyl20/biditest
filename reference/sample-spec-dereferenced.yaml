@@ -448,7 +448,7 @@ paths:
         '201':
           description: Address added
   /cart/items:
-    post:
+    get:
       summary: Add item to cart asdasda
       security:
         - BearerAuth: []
@@ -480,4 +480,4 @@ paths:
           name: param1
           schema:
             type: string
-      operationId: post_cart-items
+      operationId: get_cart-items
