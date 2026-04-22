@@ -1,6 +1,6 @@
 ---
 api:
   file: sample-spec-dereferenced.yaml
-  operationId: get_addresses
+  operationId: put_addresses
 hidden: false
 ---
