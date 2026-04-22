@@ -1,6 +1,6 @@
 ---
 api:
   file: sample-spec-dereferenced.yaml
-  operationId: post_auth-login
+  operationId: get_auth-login
 hidden: false
 ---
