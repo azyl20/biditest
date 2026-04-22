@@ -214,31 +214,6 @@ paths:
                     quantity:
                       type: integer
                       minimum: 1
-  /cart/items:
-    put:
-      summary: Add item to cart
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - product_id
-                - quantity
-              properties:
-                product_id:
-                  type: string
-                  format: uuid
-                quantity:
-                  type: integer
-                  minimum: 1
-      responses:
-        '200':
-          description: Item added to cart
-      operationId: put_cart-items
   /checkout:
     post:
       summary: Checkout and place order
@@ -471,3 +446,28 @@ paths:
       responses:
         '201':
           description: Address added
+  /cart/items:
+    post:
+      summary: Add item to cart
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - product_id
+                - quantity
+              properties:
+                product_id:
+                  type: string
+                  format: uuid
+                quantity:
+                  type: integer
+                  minimum: 1
+      responses:
+        '200':
+          description: Item added to cart
+      operationId: post_cart-items
