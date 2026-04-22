@@ -2,7 +2,6 @@
 - authlogin
 - authregister
 - cart
-- post_cart-items
 - cartitems
 - get_cart
 - checkout
