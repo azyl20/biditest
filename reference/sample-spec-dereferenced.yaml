@@ -476,6 +476,11 @@ paths:
           name: param
           schema:
             type: string
+            enum:
+              - '1'
+              - '2'
+              - '3'
+              - '4'
         - in: header
           name: param1
           schema:
