@@ -480,4 +480,9 @@ paths:
           name: param1
           schema:
             type: string
+            enum:
+              - a
+              - b
+              - c
+              - d
       operationId: get_cart-items
