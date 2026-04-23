@@ -487,8 +487,5 @@ paths:
             type: string
             enum:
               - a
-              - b
-              - c
-              - d
             default: a
       operationId: get_cart-items
