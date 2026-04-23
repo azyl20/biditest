@@ -128,7 +128,8 @@
               {
                 "type": "string",
                 "enum": [
-                  "test"
+                  "test",
+                  "hey"
                 ]
               }
             ],
