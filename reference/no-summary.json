@@ -42,8 +42,7 @@
               }
             }
           }
-        },
-        "summary": "/pets/ad"
+        }
       },
       "post": {
         "operationId": "createPet",
@@ -63,8 +62,7 @@
           "201": {
             "description": "Pet created"
           }
-        },
-        "summary": "/pets/lol"
+        }
       }
     },
     "/pets/{petId}": {
