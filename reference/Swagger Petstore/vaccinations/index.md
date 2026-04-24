@@ -1,4 +1,0 @@
----
-title: vaccinations
-hidden: false
----
