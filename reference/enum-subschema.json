@@ -15,7 +15,7 @@
   "paths": {
     "/pets": {
       "post": {
-        "summary": "Create a pet",
+        "summary": "asd",
         "operationId": "createPets",
         "tags": [
           "pets"
