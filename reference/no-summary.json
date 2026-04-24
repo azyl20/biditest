@@ -42,7 +42,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "/pets/ad"
       },
       "post": {
         "operationId": "createPet",
