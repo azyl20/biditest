@@ -191,7 +191,7 @@ paths:
                     type: string
                     format: date-time
   /cart:
-    post:
+    get:
       summary: Get current user's cart
       security:
         - BearerAuth: []
@@ -214,7 +214,30 @@ paths:
                     quantity:
                       type: integer
                       minimum: 1
-      operationId: post_cart
+  /cart/items:
+    post:
+      summary: Add item to cart
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - product_id
+                - quantity
+              properties:
+                product_id:
+                  type: string
+                  format: uuid
+                quantity:
+                  type: integer
+                  minimum: 1
+      responses:
+        '200':
+          description: Item added to cart
   /checkout:
     post:
       summary: Checkout and place order
@@ -447,45 +470,3 @@ paths:
       responses:
         '201':
           description: Address added
-  /cart/items:
-    get:
-      summary: Add item to cart asdasda
-      security:
-        - BearerAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - product_id
-                - quantity
-              properties:
-                product_id:
-                  type: string
-                  format: uuid
-                quantity:
-                  type: integer
-                  minimum: 1
-      responses:
-        '200':
-          description: Item added to cart
-      parameters:
-        - in: header
-          name: param
-          schema:
-            type: string
-            enum:
-              - '1'
-              - '2'
-              - '3'
-              - '4'
-        - in: header
-          name: param1
-          schema:
-            type: string
-            enum:
-              - a
-            default: a
-      operationId: get_cart-items

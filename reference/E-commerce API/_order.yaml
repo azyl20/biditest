@@ -1,8 +1,6 @@
 - addresses
 - authlogin
 - authregister
-- cart
-- cartitems
 - checkout
 - orders
 - ordersorderid

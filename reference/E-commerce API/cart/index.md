@@ -1,4 +1,0 @@
----
-title: /cart
-hidden: false
----
