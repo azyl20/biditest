@@ -1,0 +1,745 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Swagger Petstore
+  license:
+    name: MIT
+servers:
+  - url: http://petstore.swagger.io/v1
+paths:
+  /users:
+    get:
+      summary: List all users
+      description: Retrieve a list of all users
+      parameters:
+        - name: X-Request-ID
+          in: header
+          required: false
+          description: Unique request identifier for tracing
+          schema:
+            type: string
+            format: uuid
+        - name: X-API-Key
+          in: header
+          required: true
+          description: API key for authentication
+          schema:
+            type: string
+        - name: Accept-Language
+          in: header
+          required: false
+          description: Preferred language for response
+          schema:
+            type: string
+            default: en-US
+            enum:
+              - en-US
+              - es-ES
+              - fr-FR
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-RateLimit-Limit:
+              description: The number of allowed requests in the current period
+              schema:
+                type: integer
+            X-RateLimit-Remaining:
+              description: The number of remaining requests in the current period
+              schema:
+                type: integer
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+        '401':
+          description: Unauthorized
+          headers:
+            WWW-Authenticate:
+              description: Authentication challenge
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Too Many Requests
+          headers:
+            Retry-After:
+              description: Number of seconds to wait before retrying
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create a new user
+      description: Create a new user in the system
+      parameters:
+        - name: X-Request-ID
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          required: false
+          description: Key for ensuring idempotent requests
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        '201':
+          description: User created successfully
+          headers:
+            Location:
+              description: URL of the created resource
+              schema:
+                type: string
+                format: uri
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: Conflict - User already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /users/{userId}:
+    get:
+      summary: Get user by ID
+      description: Retrieve a specific user by their ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: The user ID
+          schema:
+            type: integer
+            format: int64
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: If-None-Match
+          in: header
+          required: false
+          description: ETag for conditional requests
+          schema:
+            type: string
+        - name: If-Modified-Since
+          in: header
+          required: false
+          description: Date for conditional requests
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+          headers:
+            ETag:
+              description: Entity tag for the resource
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modification date
+              schema:
+                type: string
+                format: date-time
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            text/html:
+              schema:
+                type: string
+        '304':
+          description: Not Modified
+          headers:
+            ETag:
+              description: Entity tag for the resource
+              schema:
+                type: string
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+            text/plain:
+              schema:
+                type: string
+                example: User not found
+    put:
+      summary: Update user
+      description: Update an existing user (full update)
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: If-Match
+          in: header
+          required: false
+          description: ETag for optimistic concurrency control
+          schema:
+            type: string
+        - name: X-Request-ID
+          in: header
+          required: false
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pet'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Pet'
+      responses:
+        '200':
+          description: User updated successfully
+          headers:
+            ETag:
+              description: Updated entity tag
+              schema:
+                type: string
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '412':
+          description: Precondition Failed
+          headers:
+            ETag:
+              description: Current entity tag
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      summary: Partially update user
+      description: Update specific fields of a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+              - application/json-patch+json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: object
+      responses:
+        '200':
+          description: User updated successfully
+          headers:
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete user
+      description: Delete a user from the system
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: X-Confirm-Delete
+          in: header
+          required: true
+          description: Confirmation header to prevent accidental deletions
+          schema:
+            type: boolean
+      responses:
+        '204':
+          description: User deleted successfully
+          headers:
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+        '403':
+          description: Forbidden - Cannot delete this user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /users/{userId}/avatar:
+    post:
+      summary: Upload user avatar
+      description: Upload an avatar image for a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: Content-Length
+          in: header
+          required: false
+          description: Size of the request body in bytes
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 5242880
+      requestBody:
+        required: true
+        content:
+          image/png:
+            schema:
+              type: string
+              format: binary
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Avatar uploaded successfully
+          headers:
+            X-File-Size:
+              description: Size of the uploaded file in bytes
+              schema:
+                type: integer
+            X-Request-ID:
+              description: Echo of the request ID if provided
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+                  size:
+                    type: integer
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '415':
+          description: Unsupported Media Type
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /search:
+    get:
+      summary: Search users
+      description: Search for users with various filters
+      parameters:
+        - name: q
+          in: query
+          required: false
+          description: Search query string
+          schema:
+            type: string
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: X-Page-Size
+          in: header
+          required: false
+          description: Number of results per page
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+        - name: X-Page-Number
+          in: header
+          required: false
+          description: Page number (1-indexed)
+          schema:
+            type: integer
+            default: 1
+            minimum: 1
+      responses:
+        '200':
+          description: Search results
+          headers:
+            X-Total-Count:
+              description: Total number of results
+              schema:
+                type: integer
+            X-Page-Number:
+              description: Current page number
+              schema:
+                type: integer
+            X-Page-Size:
+              description: Results per page
+              schema:
+                type: integer
+            Link:
+              description: Pagination links
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Pet'
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+            application/xml:
+              schema:
+                type: object
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns the health status of the API
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: healthy
+                  timestamp:
+                    type: string
+                    format: date-time
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  timestamp:
+                    type: string
+            text/plain:
+              schema:
+                type: string
+                example: healthy
+            text/html:
+              schema:
+                type: string
+  /version:
+    get:
+      summary: Get API version
+      description: Returns the current version of the API
+      parameters:
+        - name: Accept
+          in: header
+          required: false
+          description: Preferred response content type
+          schema:
+            type: string
+      responses:
+        '200':
+          description: API version information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                    example: 1.0.0
+                  build:
+                    type: string
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  build:
+                    type: string
+            text/plain:
+              schema:
+                type: string
+                example: 1.0.0
+            application/yaml:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  build:
+                    type: string
+  /export:
+    get:
+      summary: Export data
+      description: Export data in different formats, each returning different structures
+      parameters:
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Data exported successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        value:
+                          type: number
+                  metadata:
+                    type: object
+                    properties:
+                      exportedAt:
+                        type: string
+                        format: date-time
+                      totalRecords:
+                        type: integer
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  export:
+                    type: object
+                    properties:
+                      records:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                            value:
+                              type: number
+                      summary:
+                        type: object
+                        properties:
+                          exportedAt:
+                            type: string
+                            format: date-time
+                          totalRecords:
+                            type: integer
+            text/csv:
+              schema:
+                type: string
+                example: |-
+                  id,name,value
+                  1,Item One,100.5
+                  2,Item Two,200.3
+            text/plain:
+              schema:
+                type: string
+                example: |-
+                  Export Summary:
+                  Total Records: 2
+                  Exported At: 2024-01-15T10:30:00Z
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+                description: PDF document containing the exported data
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        tag:
+          type: string
+        email:
+          type: string
+          format: email
+        createdAt:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
