@@ -1,0 +1,399 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Request Body Content Types API
+  description: >-
+    API for testing multiple request body content types with computed
+    Content-Type header
+  license:
+    name: MIT
+servers:
+  - url: http://api.example.com/v1
+paths:
+  /submit:
+    post:
+      summary: Submit data in multiple formats
+      description: Accepts JSON, form-encoded, or plain text payloads
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                age:
+                  type: integer
+              required:
+                - name
+                - email
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                age:
+                  type: integer
+              required:
+                - name
+                - email
+          text/plain:
+            schema:
+              type: string
+              description: Plain text submission (e.g. name=John&email=john@example.com)
+      responses:
+        '200':
+          description: Data received successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionResult'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /upload:
+    post:
+      summary: Upload a file with metadata
+      description: Accepts binary uploads or multipart form data with file and metadata
+      parameters:
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                description:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+              required:
+                - file
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+              description: Raw binary file upload
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  description: URL to fetch file from
+                description:
+                  type: string
+                tags:
+                  type: array
+                  items:
+                    type: string
+              required:
+                - url
+      responses:
+        '201':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  url:
+                    type: string
+                    format: uri
+                  size:
+                    type: integer
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /import:
+    post:
+      summary: Import data from various formats
+      description: Accepts JSON, CSV, XML, or YAML data for bulk import
+      parameters:
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+        - name: X-Batch-ID
+          in: header
+          required: false
+          description: Optional batch identifier for tracking
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                records:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ImportRecord'
+                options:
+                  type: object
+                  properties:
+                    skipDuplicates:
+                      type: boolean
+                      default: false
+                    validateOnly:
+                      type: boolean
+                      default: false
+              required:
+                - records
+          text/csv:
+            schema:
+              type: string
+              description: CSV data with headers in the first row
+              example: |-
+                name,email,age
+                John,john@example.com,30
+                Jane,jane@example.com,25
+          application/xml:
+            schema:
+              type: string
+              description: XML formatted import data
+          application/x-yaml:
+            schema:
+              type: string
+              description: YAML formatted import data
+      responses:
+        '200':
+          description: Import completed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  imported:
+                    type: integer
+                  skipped:
+                    type: integer
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        row:
+                          type: integer
+                        message:
+                          type: string
+            text/plain:
+              schema:
+                type: string
+                example: 'Imported: 10, Skipped: 2, Errors: 0'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /webhook:
+    post:
+      summary: Register a webhook
+      description: Accepts JSON or form-encoded webhook configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookConfig'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WebhookConfig'
+      responses:
+        '201':
+          description: Webhook registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookConfig'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /single-content-type:
+    post:
+      summary: Single content type endpoint
+      description: Only accepts JSON - should NOT show Content-Type dropdown
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+  /patch-with-manual-header:
+    patch:
+      summary: Patch with manual Content-Type header
+      description: >-
+        Has a manually defined Content-Type header param - computed one should
+        NOT be added
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+              - application/merge-patch+json
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+          application/merge-patch+json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Resource patched
+          content:
+            application/json:
+              schema:
+                type: object
+  /items:
+    get:
+      summary: List items
+      description: No request body - should NOT show Content-Type dropdown
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+components:
+  schemas:
+    SubmissionResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+            - accepted
+            - processing
+            - completed
+        receivedAt:
+          type: string
+          format: date-time
+    ImportRecord:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        age:
+          type: integer
+      required:
+        - name
+        - email
+    WebhookConfig:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+            enum:
+              - created
+              - updated
+              - deleted
+        secret:
+          type: string
+      required:
+        - url
+        - events
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: string
