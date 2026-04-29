@@ -54,7 +54,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "/books mate"
       },
       "post": {
         "operationId": "createBook",
