@@ -1,7 +1,7 @@
 ---
 title: asdasd
 fullscreen: false
-hidden: true
+hidden: false
 ---
 dasda
 
