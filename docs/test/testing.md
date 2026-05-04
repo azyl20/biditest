@@ -7,4 +7,6 @@ metadata:
 ---
 [test norma](http://first-doc.readme.local:3000/docs/asfsaldfmlsdfmlks#sfsafsfasdfasdf)
 
-[core platform](doc:accounts-overview)
+[internal link](doc:accounts-overview)
+
+<br />
