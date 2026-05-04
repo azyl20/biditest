@@ -7,6 +7,6 @@ metadata:
 ---
 [test norma](http://first-doc.readme.local:3000/docs/asfsaldfmlsdfmlks#sfsafsfasdfasdf)
 
-[internal link](doc:accounts-overview)
+[internal link](doc:asfsaldfmlsdfmlks)
 
 <br />
