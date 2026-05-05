@@ -44,6 +44,11 @@ paths:
           description: User created
         '400':
           description: Invalid input
+      parameters:
+        - in: header
+          name: param
+          schema:
+            type: string
   /auth/login:
     post:
       summary: Login and get access token
