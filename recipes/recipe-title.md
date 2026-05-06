@@ -8,7 +8,7 @@ recipe:
 ---
 ```shell Shell
 curl --request GET \
-     --url https://api.demo-ecommerce.com/v1/addresses \
+     --url https://api.bookstore.example.com/v1/books \
      --header 'accept: application/json'
 ```
 
