@@ -15,7 +15,7 @@
   "paths": {
     "/books": {
       "get": {
-        "operationId": "list_allBooks",
+        "operationId": "listBooks",
         "tags": [
           "books"
         ],
@@ -54,8 +54,7 @@
               }
             }
           }
-        },
-        "summary": "sdfdfsdf"
+        }
       },
       "post": {
         "operationId": "createBook",
