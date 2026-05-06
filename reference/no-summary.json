@@ -55,7 +55,7 @@
             }
           }
         },
-        "summary": "asfasdfasf"
+        "summary": "testing"
       },
       "post": {
         "operationId": "createBook",
