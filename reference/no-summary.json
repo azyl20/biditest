@@ -15,7 +15,7 @@
   "paths": {
     "/books": {
       "get": {
-        "operationId": "listBooks",
+        "operationId": "list_allBooks",
         "tags": [
           "books"
         ],
