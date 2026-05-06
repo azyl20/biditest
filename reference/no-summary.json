@@ -55,7 +55,7 @@
             }
           }
         },
-        "summary": "example"
+        "summary": "test"
       },
       "post": {
         "operationId": "createBook",
