@@ -1,6 +1,6 @@
 ---
 api:
   file: no-summary.json
-  operationId: listBooks
+  operationId: list_allBooks
 hidden: false
 ---
