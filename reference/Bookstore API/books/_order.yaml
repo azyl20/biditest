@@ -1,4 +1,4 @@
-- listbooks
 - createbook
 - getbookbyid
 - deletebookbyid
+- list_allbooks
