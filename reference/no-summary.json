@@ -54,7 +54,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "list_allbooksaaaaa"
       },
       "post": {
         "operationId": "createBook",
