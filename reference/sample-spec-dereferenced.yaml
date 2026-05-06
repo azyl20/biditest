@@ -357,7 +357,7 @@ paths:
                       format: date-time
   /orders/{orderId}:
     get:
-      summary: Get order details
+      summary: Get order details test
       security:
         - BearerAuth: []
       parameters:
