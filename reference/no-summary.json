@@ -83,7 +83,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "adasdadsad"
       }
     },
     "/books/{bookId}": {
