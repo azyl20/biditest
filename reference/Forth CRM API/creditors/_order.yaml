@@ -1,0 +1,12 @@
+- listcreditors
+- createcreditor
+- getcreditorlistforcordoba
+- exportcreditorlist
+- createcreditornote
+- searchcreditorbyname
+- getcreditor
+- updatecreditor
+- deletecreditor
+- checkdeletecreditor
+- getcreditorinfo
+- exportcreditorinfolist
