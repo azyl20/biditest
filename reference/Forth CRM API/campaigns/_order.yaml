@@ -1,0 +1,9 @@
+- listcampaigns
+- createemailcampaign
+- getemailcampaign
+- updateemailcampaign
+- deleteemailcampaign
+- createsmscampaign
+- getsmscampaign
+- updatesmscampaign
+- deletesmscampaign

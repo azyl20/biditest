@@ -1,0 +1,11 @@
+- getnotetypes
+- createnotetypes
+- getnotetypesedit
+- getnotetypesperm
+- updatenotetypesperm
+- deletenotetypes
+- updatenotetypes
+- getnotes
+- createnote
+- deletenote
+- updatenote
