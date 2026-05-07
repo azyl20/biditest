@@ -1,0 +1,8 @@
+- settlementofferstatuslist
+- settlementoffercreate
+- settlementofferread
+- settlementofferupdate
+- settlementofferdelete
+- settlementofferupdatestatus
+- settlementoffertransactions
+- settlementoffervoid
