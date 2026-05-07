@@ -54,7 +54,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "wdasdasd"
       },
       "post": {
         "operationId": "createBook",
