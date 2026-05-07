@@ -1,4 +1,0 @@
----
-title: Campaigns
-hidden: false
----

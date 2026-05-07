@@ -1,9 +1,0 @@
-- mysettings_index
-- mysettings_store
-- mysettings_dict_modules
-- mysettings_dict_timezones
-- mysettings_emailprofiles_index
-- mysettings_emailprofiles_store
-- mysettings_emailprofiles_setactive
-- mysettings_emailprofiles_removeprofile
-- mysettings_emailprofiles_testsmtp

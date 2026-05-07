@@ -1,4 +1,0 @@
----
-title: Enrollments
-hidden: false
----
