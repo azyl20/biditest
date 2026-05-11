@@ -1,4 +1,0 @@
----
-title: /direct
-hidden: false
----
