@@ -1,4 +1,0 @@
----
-title: /multiple
-hidden: false
----
