@@ -1,4 +1,0 @@
----
-title: /indirect
-hidden: false
----
