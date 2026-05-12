@@ -123,7 +123,8 @@
           "message"
         ],
         "properties": {
-          "mode": {
+          "oneOfSingleEnum": {
+            "description": "oneOf with single-item enum subschemas (should behave as select)",
             "oneOf": [
               {
                 "type": "string",
@@ -131,8 +132,155 @@
                   "test"
                 ]
               }
-            ],
-            "description": "The mode of the control."
+            ]
+          },
+          "oneOfMultipleEnums": {
+            "description": "oneOf where each subschema is a single-item enum (should behave as select)",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "alpha"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "beta"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "gamma"
+                ]
+              }
+            ]
+          },
+          "oneOfMultiItemEnum": {
+            "description": "oneOf with a multi-item enum subschema (should NOT behave as select via isConstant)",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "foo",
+                  "bar"
+                ]
+              }
+            ]
+          },
+          "oneOfMixedSingleEnums": {
+            "description": "oneOf mixing single-item enums of different types",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "fixed"
+                ]
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  42
+                ]
+              }
+            ]
+          },
+          "anyOfSingleEnums": {
+            "description": "anyOf with single-item enum subschemas (should behave as select)",
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "x"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "y"
+                ]
+              }
+            ]
+          },
+          "anyOfMultiItemEnum": {
+            "description": "anyOf with a multi-item enum subschema (should NOT behave as select via isConstant)",
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "a",
+                  "b",
+                  "c"
+                ]
+              }
+            ]
+          },
+          "regularEnum": {
+            "description": "Standard top-level enum (always works as select, bypasses isConstant)",
+            "type": "string",
+            "enum": [
+              "red",
+              "green",
+              "blue"
+            ]
+          },
+          "regularEnumSingleItem": {
+            "description": "Top-level enum with single item (always works as select, bypasses isConstant)",
+            "type": "string",
+            "enum": [
+              "only_option"
+            ]
+          },
+          "multiSelectSingleEnums": {
+            "description": "Array with uniqueItems + oneOf single-item enums on items (should behave as multi-select)",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "opt1"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "opt2"
+                  ]
+                }
+              ]
+            }
+          },
+          "multiSelectMultiItemEnum": {
+            "description": "Array with uniqueItems + oneOf multi-item enum on items (should NOT be multi-select)",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "a",
+                    "b"
+                  ]
+                }
+              ]
+            }
+          },
+          "multiSelectRegularEnum": {
+            "description": "Array with uniqueItems + regular enum on items (already works as multi-select)",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "small",
+                "medium",
+                "large"
+              ]
+            }
           },
           "message": {
             "type": "string"
