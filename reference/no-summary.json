@@ -113,7 +113,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "/books/{bookId}example"
       },
       "delete": {
         "operationId": "deleteBookById",
