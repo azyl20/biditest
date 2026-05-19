@@ -54,7 +54,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "/booksasd"
       },
       "post": {
         "operationId": "createBook",
