@@ -438,6 +438,7 @@ paths:
                       type: string
                     country:
                       type: string
+      description: d
     post:
       summary: Add a new address
       security:
