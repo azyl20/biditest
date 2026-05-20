@@ -1,8 +1,7 @@
 ---
-title: another
 api:
   file: no-summary.json
-  operationId: get_new-endpoint-1
+  operationId: post_new-endpoint-1
 deprecated: false
 hidden: false
 link:
