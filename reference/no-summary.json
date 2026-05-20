@@ -240,7 +240,21 @@
         "parameters": [
           {
             "in": "query",
+            "name": "param2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
             "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "param1",
             "schema": {
               "type": "string"
             }
