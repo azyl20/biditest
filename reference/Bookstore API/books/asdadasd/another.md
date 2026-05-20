@@ -1,7 +1,7 @@
 ---
 api:
   file: no-summary.json
-  operationId: post_new-endpoint-1
+  operationId: patch_new-endpoint-1
 deprecated: false
 hidden: false
 link:
