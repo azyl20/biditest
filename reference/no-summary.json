@@ -193,42 +193,6 @@
         "summary": "another",
         "operationId": "patch_new-endpoint-1"
       }
-    },
-    "/new-endpoint-2": {
-      "get": {
-        "description": "",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "header",
-            "name": "param",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "asdasda"
-      }
     }
   },
   "components": {
