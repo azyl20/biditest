@@ -140,7 +140,7 @@
     },
     "/new-endpoint": {
       "get": {
-        "description": "",
+        "description": "aaaaa",
         "operationId": "",
         "responses": {
           "200": {
