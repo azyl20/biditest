@@ -182,16 +182,16 @@
       }
     },
     "/new-endpoint-1": {
-      "post": {
-        "description": "",
+      "patch": {
+        "description": "asdasdasd",
         "responses": {
           "200": {
             "description": ""
           }
         },
         "parameters": [],
-        "operationId": "post_new-endpoint-1",
-        "summary": "another"
+        "summary": "another",
+        "operationId": "patch_new-endpoint-1"
       }
     },
     "/new-endpoint-2": {
