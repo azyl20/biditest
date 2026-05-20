@@ -204,6 +204,27 @@
         "description": "ccccc",
         "summary": "cccccccc"
       }
+    },
+    "/new-endpoint-2": {
+      "get": {
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "query",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "asdasdas",
+        "description": "dasda"
+      }
     }
   },
   "components": {
