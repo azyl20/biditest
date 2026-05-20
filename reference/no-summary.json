@@ -228,19 +228,6 @@
         ],
         "summary": "asdasda"
       }
-    },
-    "/new-endpoint-3": {
-      "get": {
-        "description": "",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": [],
-        "summary": "new endpoint"
-      }
     }
   },
   "components": {
