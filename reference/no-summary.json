@@ -194,7 +194,7 @@
         "operationId": "patch_new-endpoint-1"
       },
       "put": {
-        "description": "aaaaa",
+        "description": "",
         "responses": {
           "200": {
             "description": ""
