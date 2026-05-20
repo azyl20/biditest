@@ -239,7 +239,7 @@
     },
     "/new-endpoint-3": {
       "get": {
-        "description": "",
+        "description": "asdadasda",
         "operationId": "",
         "responses": {
           "200": {
