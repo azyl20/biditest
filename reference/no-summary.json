@@ -236,27 +236,6 @@
         "parameters": [],
         "summary": "aaaaaaaaaaa"
       }
-    },
-    "/new-endpoint-3": {
-      "get": {
-        "description": "bbb",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": [
-          {
-            "in": "query",
-            "name": "param",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "bbbbb"
-      }
     }
   },
   "components": {
