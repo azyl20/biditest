@@ -1,7 +1,7 @@
 ---
 api:
   file: no-summary.json
-  operationId: patch_new-endpoint-2
+  operationId: delete_new-endpoint-2
 deprecated: false
 hidden: false
 icon: 😀
@@ -12,4 +12,4 @@ metadata:
 next:
   description: wfsfsadfsdf
 ---
-aa
+aaasdasdsds
