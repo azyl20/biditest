@@ -226,7 +226,7 @@
     },
     "/new-endpoint-2": {
       "get": {
-        "description": "gooooodddddd",
+        "description": "goooooddddddaaa",
         "operationId": "",
         "responses": {
           "200": {
@@ -234,7 +234,7 @@
           }
         },
         "parameters": [],
-        "summary": "aaaaaaaa"
+        "summary": "aaaaaaaaaaa"
       }
     }
   },
