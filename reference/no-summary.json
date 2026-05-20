@@ -161,6 +161,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "param2",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "summary": "asdadaaaa"
