@@ -168,9 +168,16 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "header",
+            "name": "param3",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
-        "summary": "asdadaaaaasasdas"
+        "summary": "asdadaaaaasasdasaaaaaa"
       }
     }
   },
