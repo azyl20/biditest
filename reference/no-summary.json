@@ -182,15 +182,16 @@
       }
     },
     "/new-endpoint-1": {
-      "get": {
+      "post": {
         "description": "",
-        "operationId": "",
         "responses": {
           "200": {
             "description": ""
           }
         },
-        "parameters": []
+        "parameters": [],
+        "operationId": "post_new-endpoint-1",
+        "summary": "another"
       }
     },
     "/new-endpoint-2": {
