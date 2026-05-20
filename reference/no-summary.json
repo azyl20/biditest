@@ -192,19 +192,6 @@
         },
         "parameters": []
       }
-    },
-    "/new-endpoint-2": {
-      "get": {
-        "description": "",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": [],
-        "summary": "aaaa"
-      }
     }
   },
   "components": {
