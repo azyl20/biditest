@@ -158,6 +158,19 @@
         ],
         "summary": "help"
       }
+    },
+    "/new-endpoint-1": {
+      "get": {
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "summary": "another help"
+      }
     }
   },
   "components": {
