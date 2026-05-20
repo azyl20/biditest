@@ -147,7 +147,15 @@
             "description": ""
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "summary": "asdad"
       }
     }
