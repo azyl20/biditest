@@ -144,7 +144,22 @@
         "operationId": "",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
           }
         },
         "parameters": [
@@ -154,9 +169,29 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "summary": "help"
+      }
+    },
+    "/new-endpoint-1": {
+      "get": {
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "summary": "another help"
       }
     }
   },
