@@ -209,6 +209,23 @@
       "get": {
         "operationId": "",
         "responses": {
+          "100": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "Continue": {
+                    "summary": "Continue",
+                    "value": "{}"
+                  }
+                }
+              }
+            },
+            "description": "Continue"
+          },
           "200": {
             "description": ""
           }
