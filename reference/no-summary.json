@@ -280,6 +280,81 @@
         ],
         "summary": "asdasdas",
         "description": "dasda"
+      },
+      "patch": {
+        "responses": {
+          "100": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                },
+                "examples": {
+                  "Continue": {
+                    "summary": "Continue",
+                    "value": "{}"
+                  }
+                }
+              }
+            },
+            "description": "Continue"
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name1": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "query",
+            "name": "param2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "param1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "asdasdas",
+        "description": "dasda",
+        "operationId": "patch_new-endpoint-2"
       }
     }
   },
