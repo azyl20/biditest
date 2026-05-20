@@ -356,6 +356,27 @@
         "description": "dasda",
         "operationId": "delete_new-endpoint-2"
       }
+    },
+    "/new-endpoint-3": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "aaaadsddsdsssssss",
+        "description": "sadfsadfsadf",
+        "operationId": "post_new-endpoint-3"
+      }
     }
   },
   "components": {
