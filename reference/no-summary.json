@@ -193,6 +193,27 @@
         "parameters": [],
         "summary": "another help"
       }
+    },
+    "/new-endpoint-2": {
+      "get": {
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "hey"
+      }
     }
   },
   "components": {
