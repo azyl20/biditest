@@ -192,6 +192,17 @@
         "parameters": [],
         "summary": "another",
         "operationId": "patch_new-endpoint-1"
+      },
+      "put": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "operationId": "put_new-endpoint-1",
+        "summary": "asdasdasdsad"
       }
     }
   },
