@@ -626,7 +626,7 @@ paths:
                     type: string
   /export:
     get:
-      summary: Export data
+      summary: Export dataaaa
       description: Export data in different formats, each returning different structures
       parameters:
         - name: X-API-Key
