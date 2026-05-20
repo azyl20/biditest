@@ -205,7 +205,7 @@
         "summary": "asdasdasdsad"
       },
       "get": {
-        "description": "",
+        "description": "help description",
         "operationId": "",
         "responses": {
           "200": {
@@ -220,7 +220,8 @@
               "type": "string"
             }
           }
-        ]
+        ],
+        "summary": "help"
       }
     }
   },
