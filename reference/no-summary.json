@@ -223,19 +223,6 @@
         ],
         "summary": "help"
       }
-    },
-    "/new-endpoint-2": {
-      "get": {
-        "description": "goooooddddddaaa",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": [],
-        "summary": "aaaaaaaaaaa"
-      }
     }
   },
   "components": {
