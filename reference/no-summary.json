@@ -193,19 +193,6 @@
         "summary": "another",
         "operationId": "patch_new-endpoint-1"
       }
-    },
-    "/new-endpoint-2": {
-      "get": {
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": [],
-        "summary": "ccccc",
-        "description": "cccc"
-      }
     }
   },
   "components": {
