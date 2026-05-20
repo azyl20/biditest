@@ -236,6 +236,19 @@
         "parameters": [],
         "summary": "aaaaaaaaaaa"
       }
+    },
+    "/new-endpoint-3": {
+      "get": {
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "summary": "bbbb"
+      }
     }
   },
   "components": {
