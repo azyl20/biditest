@@ -281,7 +281,7 @@
         "summary": "asdasdas",
         "description": "dasda"
       },
-      "patch": {
+      "delete": {
         "responses": {
           "100": {
             "content": {
@@ -352,9 +352,9 @@
             }
           }
         ],
-        "summary": "asdasdas",
+        "summary": "asdasdasaa",
         "description": "dasda",
-        "operationId": "patch_new-endpoint-2"
+        "operationId": "delete_new-endpoint-2"
       }
     }
   },
