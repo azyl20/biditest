@@ -7,8 +7,8 @@ metadata:
 next:
   description: asdasd
   pages:
-    - slug: test
-      title: test
+    - slug: next-in-different-folder
+      title: next in different folder
       type: basic
 ---
 adasdasd
