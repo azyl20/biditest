@@ -6,9 +6,9 @@ metadata:
   robots: index
 next:
   pages:
-    - title: hahaha
-      type: link
-      url: ''
+    - slug: testing
+      title: testing
+      type: basic
 ---
 asdasdasdasd
 
