@@ -6,8 +6,8 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: getting-started
-      title: Welcome to first-doc
+    - slug: testing
+      title: testing
       type: basic
 ---
 asdasdasdasd
