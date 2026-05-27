@@ -1,5 +1,5 @@
 ---
-title: next
+title: next in this folder
 deprecated: false
 hidden: false
 metadata:
