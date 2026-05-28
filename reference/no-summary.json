@@ -296,6 +296,12 @@
                 "required": [
                   "name"
                 ]
+              },
+              "examples": {
+                "New Example": {
+                  "summary": "New Example",
+                  "value": {}
+                }
               }
             }
           }
