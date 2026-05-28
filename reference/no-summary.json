@@ -135,7 +135,8 @@
           "204": {
             "description": "Book deleted"
           }
-        }
+        },
+        "summary": "/books/{bookId}asdasd"
       }
     }
   },
