@@ -236,7 +236,22 @@
             "description": ""
           }
         },
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "param",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "operationId": "get_test",
         "summary": "testasas",
         "description": "sfasdfadsf"
