@@ -246,12 +246,6 @@
                   "required": [
                     "name"
                   ]
-                },
-                "examples": {
-                  "OK": {
-                    "summary": "OK",
-                    "value": "{}"
-                  }
                 }
               },
               "application/csv": {
@@ -288,7 +282,24 @@
         ],
         "summary": "testasas",
         "description": "sfasdfadsf",
-        "operationId": "patch_test"
+        "operationId": "patch_test",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        }
       }
     }
   },
