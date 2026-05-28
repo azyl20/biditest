@@ -228,6 +228,19 @@
         "summary": "asdasdas",
         "description": "dasda"
       }
+    },
+    "/test": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "operationId": "get_test",
+        "summary": "test",
+        "description": "sfasdfadsf"
+      }
     }
   },
   "components": {
