@@ -139,48 +139,6 @@
         }
       }
     },
-    "/new-endpoint": {
-      "get": {
-        "description": "",
-        "operationId": "",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "in": "query",
-            "name": "param",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "name": "param",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
     "/new-endpoint-1": {
       "get": {
         "operationId": "",
