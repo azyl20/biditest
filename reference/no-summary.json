@@ -246,6 +246,12 @@
                   "required": [
                     "name"
                   ]
+                },
+                "examples": {
+                  "OK": {
+                    "summary": "OK",
+                    "value": "{}"
+                  }
                 }
               },
               "application/csv": {
