@@ -182,17 +182,6 @@
       }
     },
     "/new-endpoint-1": {
-      "patch": {
-        "description": "asdasdasd",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": [],
-        "summary": "another",
-        "operationId": "patch_new-endpoint-1"
-      },
       "get": {
         "operationId": "",
         "responses": {
