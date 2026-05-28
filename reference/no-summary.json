@@ -230,7 +230,7 @@
       }
     },
     "/test": {
-      "get": {
+      "patch": {
         "responses": {
           "200": {
             "description": "",
@@ -280,9 +280,9 @@
             }
           }
         ],
-        "operationId": "get_test",
         "summary": "testasas",
-        "description": "sfasdfadsf"
+        "description": "sfasdfadsf",
+        "operationId": "patch_test"
       }
     }
   },
