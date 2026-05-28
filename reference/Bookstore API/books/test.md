@@ -7,5 +7,10 @@ link:
   new_tab: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: testing
+      title: testing
+      type: basic
 ---
 sdfsafasfasf
