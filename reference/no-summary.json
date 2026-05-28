@@ -115,7 +115,7 @@
           }
         }
       },
-      "delete": {
+      "patch": {
         "operationId": "deleteBookById",
         "tags": [
           "books"
