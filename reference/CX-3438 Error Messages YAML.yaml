@@ -9,8 +9,7 @@ servers:
 paths:
   /pets:
     get:
-      description: "List all pets"
-      description: "test"
+      summary: "List all pets"
       operationId: "listPets"
       tags:
         - "pets"
