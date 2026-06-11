@@ -1,4 +1,0 @@
----
-title: /companies
-hidden: false
----
