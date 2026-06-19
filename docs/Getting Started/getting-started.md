@@ -2,9 +2,9 @@
 title: Welcome to first-doc
 hidden: false
 ---
-<Callout icon="📘" theme="info">
-  **Template:**  Delete this callout and edit this page with your content and links.
-</Callout>
+> 📘
+>
+> **Template:**  Delete this callout and edit this page with your content and links.
 
 <Cards>
   {/* Edit the props below to customize these components */}
@@ -15,7 +15,7 @@ hidden: false
   <Card title="Build with AI" href="#" icon="fa-duotone fa-sparkles">Use LLM features to automate your workflow</Card>
 </Cards>
 
-<br />
+sdfasf
 
 ## Recent Releases
 
