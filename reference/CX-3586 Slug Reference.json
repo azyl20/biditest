@@ -1,0 +1,41 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Qwertyforty API",
+    "version": "1.0.0",
+    "description": "A demo API for rdme upload experiments."
+  },
+  "servers": [
+    {
+      "url": "https://qwertyforty.readme.io/api",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/qwertyforty": {
+      "get": {
+        "operationId": "qwertyforty",
+        "summary": "Does qwertyforty",
+        "description": "A demo endpoint that does qwertyforty.",
+        "responses": {
+          "200": {
+            "description": "Successful qwertyforty response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "qwertyforty"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
