@@ -627,7 +627,9 @@ paths:
   /export:
     get:
       summary: Export dataaaa
-      description: Export data in different formats, each returning different structures
+      description: >-
+        Export data in different formats, each returning different structures
+        asdfsadf
       parameters:
         - name: X-API-Key
           in: header
