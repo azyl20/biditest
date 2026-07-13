@@ -475,3 +475,11 @@ paths:
       responses:
         '201':
           description: Address added
+  /test2:
+    get:
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      summary: test2
+      operationId: get_test2
