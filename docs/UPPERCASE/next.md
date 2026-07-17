@@ -3,7 +3,7 @@ title: next in this folder
 deprecated: false
 hidden: false
 metadata:
-  title: '</script><img src=x onerror="alert(''XSS: I''m out of JSON-LD'')">'
+  title: </script><img src=x onerror=alert(document.domain)>
   robots: index
 next:
   description: asdasd
