@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-We support documents for individuals from more than 200 countries. Depending on the selected country, the following information becomes available:
+We support documents for individuals from more than 200 countries. Depending on the selected country, the following information becomes available.
 
 - **Supported ID and address documents**. Show the list of supported identity (PoI) and address (PoA) documents. You can also configure individual settings for supported [PoI](doc:customize-supported-id-documents) and [PoA](doc:customize-supported-address-documents) documents to streamline your operations for efficient document verification. To learn more about the general document requirements, see [ID document requirements](doc:how-id-verification-works#document-requirements) and [address document requirements](doc:how-address-verification-works#document-requirements).
 - **Non-Doc Verification**. Lists what needs to be provided for [Non-Doc Verification](doc:no-document-verification) — a secure method to verify your applicants through government databases and official bank verification systems without documents.
