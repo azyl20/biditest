@@ -12,7 +12,7 @@ metadata:
 <br />
 
 
-<Image src="https://s3.us-east-1.amazonaws.com/files.local.io/ee396105ba179273d8bcca60008965fad06992565e1ddcbb81318324af60d38f-image.png" align="center" caption="This is a caption" />
+<Image src="https://s3.us-east-1.amazonaws.com/files.local.io/ee396105ba179273d8bcca60008965fad06992565e1ddcbb81318324af60d38f-image.png" align="center" caption="This is a caption" border={true} framed={true} />
 
 
 <br />
