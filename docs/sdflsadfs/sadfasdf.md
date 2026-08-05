@@ -6,6 +6,7 @@ hidden: false
 metadata:
   robots: index
 next:
+  description: fsafsadf
   pages:
     - slug: temp
       title: temp
