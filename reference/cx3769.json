@@ -43,7 +43,7 @@
   "components": {
     "schemas": {
       "Pet": {
-        "allOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Error"
           },
@@ -74,11 +74,11 @@
         "type": "object",
         "description": "A thing",
         "required": [
-          "code",
+          "name",
           "message"
         ],
         "properties": {
-          "code": {
+          "name": {
             "type": "integer",
             "format": "int32"
           },
