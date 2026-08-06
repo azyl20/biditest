@@ -46,6 +46,9 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/Error"
+          },
+          {
+            "$ref": "#/components/schemas/Thing"
           }
         ],
         "description": "A pet"
