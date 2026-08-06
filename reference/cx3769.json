@@ -66,6 +66,23 @@
             "type": "string"
           }
         }
+      },
+      "Thing": {
+        "type": "object",
+        "description": "A thing",
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
       }
     }
   }
