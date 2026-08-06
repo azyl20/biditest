@@ -43,7 +43,7 @@
   "components": {
     "schemas": {
       "Pet": {
-        "allOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Error"
           },
