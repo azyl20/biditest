@@ -1,0 +1,509 @@
+openapi: 3.1.0
+info:
+  title: Multi-Type API
+  version: 1.0.0
+paths:
+  /data:
+    get:
+      summary: Returns data in various formats
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - type: object
+                    description: This is a success response
+                    properties:
+                      message:
+                        type: string
+                  - type: object
+                    description: This is an error response
+                    properties:
+                      error:
+                        type: string
+            text/plain:
+              schema:
+                oneOf:
+                  - type: string
+                    example: This is a plain text response
+                  - type: string
+                    example: Another example of plain text response
+    post:
+      summary: Create or update data with different formats
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  description: This is a success response
+                  properties:
+                    name:
+                      type: string
+                - type: object
+                  description: This is an error response
+                  properties:
+                    email:
+                      type: string
+                    phone:
+                      type: string
+      responses:
+        '201':
+          description: Created or updated successfully
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - type: object
+                    description: Status
+                    properties:
+                      status:
+                        type: string
+                  - type: object
+                    description: This is an error response
+                    properties:
+                      success:
+                        type: boolean
+  /data/{id}:
+    put:
+      summary: Update data with nested anyOf in request body
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                value:
+                  anyOf:
+                    - type: string
+                    - type: boolean
+                    - type: 'null'
+                  description: A field that can be string, boolean, or null
+                metadata:
+                  type: object
+                  properties:
+                    tags:
+                      anyOf:
+                        - type: array
+                          items:
+                            type: string
+                        - type: string
+                        - type: 'null'
+                    priority:
+                      oneOf:
+                        - type: integer
+                        - type: string
+                        - type: 'null'
+              required:
+                - id
+                - value
+      responses:
+        '200':
+          description: Updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  updated:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      value:
+                        anyOf:
+                          - type: string
+                          - type: boolean
+                          - type: 'null'
+    patch:
+      summary: Partially update data with nested oneOf in request body
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  oneOf:
+                    - type: string
+                    - type: boolean
+                    - type: 'null'
+                config:
+                  type: object
+                  properties:
+                    mode:
+                      anyOf:
+                        - type: string
+                          enum:
+                            - auto
+                            - manual
+                        - type: boolean
+                        - type: 'null'
+                    settings:
+                      oneOf:
+                        - type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                        - type: array
+                          items:
+                            type: string
+                        - type: 'null'
+      responses:
+        '200':
+          description: Partially updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+  /data/search:
+    post:
+      summary: Search data with nested anyOf in request and response
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                filters:
+                  type: object
+                  properties:
+                    type:
+                      anyOf:
+                        - type: string
+                        - type: boolean
+                        - type: 'null'
+                    category:
+                      oneOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        - type: 'null'
+                    active:
+                      anyOf:
+                        - type: boolean
+                        - type: string
+                        - type: 'null'
+              required:
+                - query
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        data:
+                          anyOf:
+                            - type: string
+                            - type: boolean
+                            - type: 'null'
+                        metadata:
+                          type: object
+                          properties:
+                            source:
+                              oneOf:
+                                - type: string
+                                - type: boolean
+                                - type: 'null'
+                            tags:
+                              anyOf:
+                                - type: array
+                                  items:
+                                    type: string
+                                - type: string
+                                - type: 'null'
+                  count:
+                    type: integer
+  /data/validate:
+    post:
+      summary: Validate data with deeply nested oneOf/anyOf
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                field1:
+                  anyOf:
+                    - type: string
+                    - type: boolean
+                    - type: 'null'
+                field2:
+                  type: object
+                  properties:
+                    nested:
+                      oneOf:
+                        - type: string
+                        - type: boolean
+                        - type: 'null'
+                    deep:
+                      type: object
+                      properties:
+                        value:
+                          anyOf:
+                            - type: string
+                            - type: boolean
+                            - type: 'null'
+                        items:
+                          oneOf:
+                            - type: array
+                              items:
+                                anyOf:
+                                  - type: string
+                                  - type: boolean
+                                  - type: 'null'
+                            - type: 'null'
+                validationConfig:
+                  oneOf:
+                    - type: object
+                      title: StrictValidation
+                      description: Strict validation configuration
+                      properties:
+                        mode:
+                          type: string
+                          enum:
+                            - strict
+                        rules:
+                          type: array
+                          items:
+                            type: string
+                        enforceAll:
+                          type: boolean
+                      required:
+                        - mode
+                        - rules
+                    - type: object
+                      title: RelaxedValidation
+                      description: Relaxed validation configuration
+                      properties:
+                        mode:
+                          type: string
+                          enum:
+                            - relaxed
+                        allowPartial:
+                          type: boolean
+                        warningsOnly:
+                          type: boolean
+                      required:
+                        - mode
+                        - allowPartial
+                    - type: string
+                      description: Validation config as a simple string identifier
+      responses:
+        '200':
+          description: Validation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                  errors:
+                    anyOf:
+                      - type: array
+                        items:
+                          type: object
+                          properties:
+                            field:
+                              type: string
+                            message:
+                              anyOf:
+                                - type: string
+                                - type: boolean
+                                - type: 'null'
+                      - type: 'null'
+                  warnings:
+                    oneOf:
+                      - type: array
+                        items:
+                          type: string
+                      - type: string
+                      - type: 'null'
+                  result:
+                    oneOf:
+                      - type: object
+                        title: SuccessResult
+                        description: Successful validation result
+                        properties:
+                          status:
+                            type: string
+                            enum:
+                              - success
+                          validatedFields:
+                            type: array
+                            items:
+                              type: string
+                          score:
+                            type: number
+                        required:
+                          - status
+                          - validatedFields
+                      - type: object
+                        title: FailureResult
+                        description: Failed validation result
+                        properties:
+                          status:
+                            type: string
+                            enum:
+                              - failure
+                          failedFields:
+                            type: array
+                            items:
+                              type: string
+                          reason:
+                            type: string
+                        required:
+                          - status
+                          - failedFields
+                      - type: string
+                        description: Result as a simple string status
+  /data/config:
+    post:
+      summary: Create configuration with oneOf two different object types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Configuration name
+                config:
+                  oneOf:
+                    - type: object
+                      title: UserConfig
+                      description: User configuration type
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                            - user
+                        username:
+                          type: string
+                        email:
+                          type: string
+                        role:
+                          type: string
+                      required:
+                        - type
+                        - username
+                        - email
+                    - type: object
+                      title: SystemConfig
+                      description: System configuration type
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                            - system
+                        host:
+                          type: string
+                        port:
+                          type: integer
+                        protocol:
+                          type: string
+                        timeout:
+                          type: integer
+                      required:
+                        - type
+                        - host
+                        - port
+                    - type: string
+                      description: Configuration as a simple string
+                  description: >-
+                    Configuration that can be either user object, system object,
+                    or a string
+              required:
+                - name
+                - config
+      responses:
+        '201':
+          description: Configuration created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  config:
+                    oneOf:
+                      - type: object
+                        title: UserConfig
+                        properties:
+                          type:
+                            type: string
+                          username:
+                            type: string
+                          email:
+                            type: string
+                          role:
+                            type: string
+                      - type: object
+                        title: SystemConfig
+                        properties:
+                          type:
+                            type: string
+                          host:
+                            type: string
+                          port:
+                            type: integer
+                          protocol:
+                            type: string
+                          timeout:
+                            type: integer
+                      - type: string
+components:
+  schemas:
+    ExampleResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
