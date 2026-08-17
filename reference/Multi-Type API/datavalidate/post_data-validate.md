@@ -1,7 +1,7 @@
 ---
 api:
   file: anyOf.yaml
-  operationId: post_data-validate-test
+  operationId: post_data-validate
 hidden: false
 ---
 aa
