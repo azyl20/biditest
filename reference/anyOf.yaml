@@ -353,7 +353,7 @@ paths:
                           timeout:
                             type: integer
                       - type: string
-  /data/validate:
+  /data/validate/test:
     post:
       summary: Validate data with deeply nested oneOf/anyOf
       requestBody:
@@ -498,7 +498,7 @@ paths:
                           - failedFields
                       - type: string
                         description: Result as a simple string status
-      operationId: post_data-validate
+      operationId: post_data-validate-test
 components:
   schemas:
     ExampleResponse:
