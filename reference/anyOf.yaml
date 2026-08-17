@@ -253,7 +253,107 @@ paths:
                                 - type: 'null'
                   count:
                     type: integer
-  /data/validate:
+  /data/config:
+    post:
+      summary: Create configuration with oneOf two different object types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Configuration name
+                config:
+                  oneOf:
+                    - type: object
+                      title: UserConfig
+                      description: User configuration type
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                            - user
+                        username:
+                          type: string
+                        email:
+                          type: string
+                        role:
+                          type: string
+                      required:
+                        - type
+                        - username
+                        - email
+                    - type: object
+                      title: SystemConfig
+                      description: System configuration type
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                            - system
+                        host:
+                          type: string
+                        port:
+                          type: integer
+                        protocol:
+                          type: string
+                        timeout:
+                          type: integer
+                      required:
+                        - type
+                        - host
+                        - port
+                    - type: string
+                      description: Configuration as a simple string
+                  description: >-
+                    Configuration that can be either user object, system object,
+                    or a string
+              required:
+                - name
+                - config
+      responses:
+        '201':
+          description: Configuration created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  config:
+                    oneOf:
+                      - type: object
+                        title: UserConfig
+                        properties:
+                          type:
+                            type: string
+                          username:
+                            type: string
+                          email:
+                            type: string
+                          role:
+                            type: string
+                      - type: object
+                        title: SystemConfig
+                        properties:
+                          type:
+                            type: string
+                          host:
+                            type: string
+                          port:
+                            type: integer
+                          protocol:
+                            type: string
+                          timeout:
+                            type: integer
+                      - type: string
+  /data/validate/test:
     post:
       summary: Validate data with deeply nested oneOf/anyOf
       requestBody:
@@ -398,106 +498,7 @@ paths:
                           - failedFields
                       - type: string
                         description: Result as a simple string status
-  /data/config:
-    post:
-      summary: Create configuration with oneOf two different object types
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: Configuration name
-                config:
-                  oneOf:
-                    - type: object
-                      title: UserConfig
-                      description: User configuration type
-                      properties:
-                        type:
-                          type: string
-                          enum:
-                            - user
-                        username:
-                          type: string
-                        email:
-                          type: string
-                        role:
-                          type: string
-                      required:
-                        - type
-                        - username
-                        - email
-                    - type: object
-                      title: SystemConfig
-                      description: System configuration type
-                      properties:
-                        type:
-                          type: string
-                          enum:
-                            - system
-                        host:
-                          type: string
-                        port:
-                          type: integer
-                        protocol:
-                          type: string
-                        timeout:
-                          type: integer
-                      required:
-                        - type
-                        - host
-                        - port
-                    - type: string
-                      description: Configuration as a simple string
-                  description: >-
-                    Configuration that can be either user object, system object,
-                    or a string
-              required:
-                - name
-                - config
-      responses:
-        '201':
-          description: Configuration created successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  config:
-                    oneOf:
-                      - type: object
-                        title: UserConfig
-                        properties:
-                          type:
-                            type: string
-                          username:
-                            type: string
-                          email:
-                            type: string
-                          role:
-                            type: string
-                      - type: object
-                        title: SystemConfig
-                        properties:
-                          type:
-                            type: string
-                          host:
-                            type: string
-                          port:
-                            type: integer
-                          protocol:
-                            type: string
-                          timeout:
-                            type: integer
-                      - type: string
+      operationId: post_data-validate-test
 components:
   schemas:
     ExampleResponse:
