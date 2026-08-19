@@ -505,7 +505,7 @@ paths:
           schema:
             type: string
         - in: header
-          name: /giraffe/name
+          name: /data/validate/test
           schema:
             type: string
 components:
