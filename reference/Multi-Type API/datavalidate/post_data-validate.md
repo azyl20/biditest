@@ -1,7 +1,7 @@
 ---
 api:
   file: anyOf.yaml
-  operationId: post_data-validate-test
+  operationId: post_payment-methods-v2-payments
 hidden: false
 ---
 aaaa
