@@ -499,6 +499,15 @@ paths:
                       - type: string
                         description: Result as a simple string status
       operationId: post_data-validate-test
+      parameters:
+        - in: header
+          name: very-niche-header
+          schema:
+            type: string
+        - in: header
+          name: giraffe/name
+          schema:
+            type: string
 components:
   schemas:
     ExampleResponse:
