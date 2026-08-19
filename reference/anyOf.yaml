@@ -505,7 +505,7 @@ paths:
           schema:
             type: string
         - in: header
-          name: /giraffe/first/name
+          name: /payment-methods/v2/payments
           schema:
             type: string
 components:
