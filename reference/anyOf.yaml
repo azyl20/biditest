@@ -353,7 +353,7 @@ paths:
                           timeout:
                             type: integer
                       - type: string
-  /payment-methods/v2/payments:
+  /data/validate:
     post:
       summary: Validate data with deeply nested oneOf/anyOf
       requestBody:
@@ -504,10 +504,10 @@ paths:
           schema:
             type: string
         - in: header
-          name: /data/validate
+          name: /payment-methods/v2/payments
           schema:
             type: string
-      operationId: post_payment-methods-v2-payments
+      operationId: post_data-validate
 components:
   schemas:
     ExampleResponse:
