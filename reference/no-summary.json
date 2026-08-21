@@ -138,6 +138,18 @@
         },
         "summary": "/books/{bookId}asdasd"
       }
+    },
+    "/new-endpoint": {
+      "get": {
+        "operationId": "",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "summary": "second-slug"
+      }
     }
   },
   "components": {
