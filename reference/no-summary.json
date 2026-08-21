@@ -138,6 +138,18 @@
         },
         "summary": "/books/{bookId}asdasd"
       }
+    },
+    "/same-slug": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [],
+        "summary": "same-slug",
+        "operationId": "get_same-slug"
+      }
     }
   },
   "components": {
