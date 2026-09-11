@@ -3,7 +3,9 @@ title: >-
   Copy of Copy of Copy of Copy of Copy of Copy of Copy of Copy of Upper Case
   Page
 deprecated: false
-hidden: true
+hidden: false
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
