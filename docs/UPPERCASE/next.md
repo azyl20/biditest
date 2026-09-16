@@ -17,3 +17,5 @@ adasdasdaaa
 aaaa
 
 aaaaaaaaaaaa
+
+<ExampleThing header="Getting Started with Custom Components" />
