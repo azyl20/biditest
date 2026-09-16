@@ -8,4 +8,4 @@ asdfsfsfs
 
 <ExampleThing header="Getting Started with Custom Components" />
 
-<TestBlock105 />
+<TestBlock1 />
