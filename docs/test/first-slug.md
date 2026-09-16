@@ -6,3 +6,7 @@ metadata:
   robots: index
 ---
 sdfasdf
+
+<TestBlock287 />
+
+<ExampleThing header="Getting Started with Custom Components" />
