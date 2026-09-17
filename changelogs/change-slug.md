@@ -11,7 +11,3 @@ published_at: '2026-09-17T03:33:08.866Z'
 <TestBlock145 />
 
 <TestBlock10 />
-
-<Accordion title="sfasf" icon="fa-info-circle">
-  ssdfasdf
-</Accordion>
