@@ -45,9 +45,3 @@ metadata:
 
   </Tab>
 </Tabs>
-
-<Accordion title="user {user.TEST_VARIABLE}" icon="fa-info-circle">
-  {user.TEST_VARIABLE}
-
-
-</Accordion>
