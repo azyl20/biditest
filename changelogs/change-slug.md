@@ -21,3 +21,12 @@ type: improved
   fontSize="14px"
   fontWeight="bold"
  />
+
+<Banner
+  isInline={true}
+  message="This component is only defined in v1.0"
+  color="#118cfd"
+  textColor="#ffffff"
+  fontSize="14px"
+  fontWeight="bold"
+ />
