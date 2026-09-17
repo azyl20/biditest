@@ -9,3 +9,7 @@ asdfsfsfs
 <ExampleThing header="Getting Started with Custom Components" />
 
 <TestBlock1 />
+
+<Accordion title="safasdfsad" icon="fa-info-circle">
+  sdfasdfsd
+</Accordion>
