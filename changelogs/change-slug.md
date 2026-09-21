@@ -106,6 +106,6 @@ type: improved
   fontWeight="bold"
  />
 
-<br />
+a
 
 <ExampleThing header="Getting Started with Custom Components" />
