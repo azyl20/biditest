@@ -706,6 +706,15 @@ paths:
                 type: string
                 format: binary
                 description: PDF document containing the exported data
+  /new-endpoint:
+    get:
+      operationId: ''
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      summary: asdasdasd
+      description: dasdasd
 components:
   schemas:
     Pet:
