@@ -23,3 +23,7 @@ navigation:
   - kind: discuss
     name: Discussions
     icon: far fa-comments
+  - kind: guide
+    directory: product-guides
+    name: Product Guides
+    icon: far fa-book-open-lines
