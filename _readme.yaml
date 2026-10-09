@@ -25,5 +25,5 @@ navigation:
     icon: far fa-comments
   - kind: guide
     directory: product-guides
-    name: Product Guides
+    name: example
     icon: far fa-book-open-lines
