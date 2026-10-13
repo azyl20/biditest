@@ -11,7 +11,7 @@ sdfasdf aaaaaa
 
 <Steps name="quickstart">
   <Step title="Create an API key">
-    Sign up for an ABCD account and navigate to your API settings to generate a new API key.
+    Sign up for an Acme account and navigate to your API settings to generate a new API key.
 
     ```json Request
     POST https://api.acme.com/v1/keys
