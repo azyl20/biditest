@@ -95,8 +95,6 @@ type: improved
 
 <TestBlock145 />
 
-<TestBlock10 />
-
 <Banner
   isInline={true}
   message="This component is only defined in v1.0"
