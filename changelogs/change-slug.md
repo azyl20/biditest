@@ -108,4 +108,4 @@ type: improved
 
 a
 
-<br />
+<ExampleThing header="Getting Started with Custom Components" />
