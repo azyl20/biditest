@@ -104,6 +104,10 @@ type: improved
   fontWeight="bold"
  />
 
+<TestBlock10 />
+
+<br />
+
 a
 
 <ExampleThing header="Getting Started with Custom Components" />
