@@ -38,3 +38,7 @@ const response = await fetch('https://api.acme.com/v1/data', {
     You&apos;re all set! Start making requests to the Acme API.
   </Step>
 </Steps>
+
+<TestBlock10 />
+
+<TestBlock472 />
