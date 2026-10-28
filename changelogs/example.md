@@ -1,5 +1,5 @@
 ---
-title: example
+title: example etag-test
 author: Alex Li
 hidden: false
 published_at: '2026-05-04T05:24:50.178Z'
