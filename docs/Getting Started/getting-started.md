@@ -1,5 +1,5 @@
 ---
-title: Welcome to first-doc etag-test
+title: Welcome to first-doc
 hidden: false
 ---
 > 📘
