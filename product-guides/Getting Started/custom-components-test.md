@@ -36,3 +36,5 @@ const response = await fetch('https://api.acme.com/v1/data', {
 </Steps>
 
 <GreatComponent header="Getting Started with Custom Components" />
+
+<TestBlock472 />
