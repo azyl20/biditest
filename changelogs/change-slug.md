@@ -118,3 +118,5 @@ type: improved
 a
 
 <ExampleThing header="Getting Started with Custom Components" />
+
+<TestBlock472 />
