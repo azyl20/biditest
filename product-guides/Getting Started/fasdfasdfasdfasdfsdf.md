@@ -6,5 +6,3 @@ metadata:
   robots: index
 ---
 <TestBlock472 />
-
-<TestBlock598 />
